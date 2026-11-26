@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reparaciones informáticas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 15px; }
+        input, button { display: block; margin: 10px 0; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Reparaciones informáticas</h1>
+    <p>Gestión de reparaciones de ordenadores.</p>
+    <label for="cliente">Cliente:</label>
+    <input id="cliente" type="text">
+    <label for="averia">Avería:</label>
+    <input id="averia" type="text">
+    <button onclick="registrar()">Registrar reparación</button>
+    <h2>Reparaciones</h2>
+    <ul id="lista"></ul>
+    <script>
+        function registrar() {
+            const cliente = document.getElementById('cliente');
+            const averia = document.getElementById('averia');
+            if (!cliente.value.trim() || !averia.value.trim()) {
+                alert('Completa los dos campos.');
+                return;
+            }
+            const elemento = document.createElement('li');
+            elemento.textContent = cliente.value + ' - ' + averia.value;
+            document.getElementById('lista').appendChild(elemento);
+            cliente.value = '';
+            averia.value = '';
+        }
+    </script>
+</body>
+</html>
